@@ -169,7 +169,7 @@ function home() {
       $('#view').innerHTML = `<div class="grid">${S('Identidad', id.name)}${S('Modelo', rb.model || r['board-name'])}${S('Versión RouterOS', r.version)}${S('Uptime', r.uptime)}${S('Arquitectura', r['architecture-name'])}${S('CPU', r.cpu)}` +
         B('Carga CPU', +r['cpu-load'], (r['cpu-count'] || 1) + ' núcleo(s) · ' + (r['cpu-frequency'] || '?') + ' MHz') +
         B('Memoria', memUsed, `${bytes(r['total-memory'] - r['free-memory'])} de ${bytes(r['total-memory'])}`) +
-        B('Disco', hddUsed, `${bytes(r['total-hdd-space'] - r['free-hdd-space'])} de ${bytes(r['total-hdd-space'])}`) + S('Serie', rb['serial-number'])}</div>`;
+        B('Disco', hddUsed, `${bytes(r['total-hdd-space'] - r['free-hdd-space'])} de ${bytes(r['total-hdd-space'])}`) + S('Serie', rb['serial-number']) + '</div>';
     } catch (e) { if (!quiet) $('#view').innerHTML = `<div class="tablewrap"><div class="empty">${esc(e.message)}</div></div>`; }
   };
   $('#ref').onclick = () => refresh();
