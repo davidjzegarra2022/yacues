@@ -1,0 +1,9 @@
+{
+  "name": "winbox-web",
+  "version": "1.0.0",
+  "description": "Cliente web tipo Winbox para routers MikroTik (RouterOS v7, API REST)",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "engines": { "node": ">=18" },
+  "license": "MIT"
+}

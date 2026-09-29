@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Winbox Web</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div id="login" class="login">
+  <form id="loginForm" class="card">
+    <h1><span class="logo">◈</span> Winbox Web</h1>
+    <p class="muted">Conéctate a tu MikroTik (RouterOS v7+)</p>
+    <label>Router (IP o host)<input name="host" placeholder="192.168.88.1" required autocomplete="off"></label>
+    <div class="row">
+      <label>Puerto<input name="port" type="number" placeholder="80" value="80"></label>
+      <label class="check"><input name="tls" type="checkbox"> HTTPS (www-ssl)</label>
+    </div>
+    <label>Usuario<input name="user" value="admin" required></label>
+    <label>Contraseña<input name="pass" type="password"></label>
+    <button type="submit">Conectar</button>
+    <div id="loginErr" class="err"></div>
+    <details><summary>¿Cómo preparar el router?</summary>
+      <p>En el router ejecuta <code>/ip service enable www</code> (o <code>www-ssl</code> con certificado). Requiere RouterOS 7.1 o superior.</p>
+    </details>
+  </form>
+</div>
+
+<div id="app" class="app hidden">
+  <header>
+    <button id="burger" aria-label="Menú">☰</button>
+    <b id="title">Winbox Web</b>
+    <span class="spacer"></span>
+    <label class="check"><input id="auto" type="checkbox"> Auto-actualizar</label>
+    <button id="logout" class="ghost">Salir</button>
+  </header>
+  <nav id="menu"></nav>
+  <main>
+    <div class="toolbar" id="toolbar"></div>
+    <div id="view"></div>
+  </main>
+</div>
+
+<dialog id="dlg"><form method="dialog" id="dlgForm"><h3 id="dlgTitle"></h3><div id="dlgFields"></div>
+  <div class="row end"><button value="cancel" class="ghost">Cancelar</button><button value="ok">Guardar</button></div></form></dialog>
+<div id="toast"></div>
+<script src="app.js"></script>
+</body>
+</html>
